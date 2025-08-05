@@ -1,9 +1,9 @@
 streamlit
-numpy
+numpy==1.23.5  # Change this line
 pandas
 tensorflow==2.9.0
 joblib
 Pillow
 bokeh
 nltk
-protobuf==3.20.1  # Add this line
+protobuf==3.20.1
