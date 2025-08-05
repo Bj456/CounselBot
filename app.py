@@ -32,7 +32,7 @@ import re
 import json
 import nltk
 #run on the first time alone :
-#nltk.download('wordnet')
+#nltk.download('wordnet') # This line should be commented out or removed if you use packages.txt
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
