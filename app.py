@@ -106,7 +106,7 @@ def main():
     #flag=1
     qvals = {"Select an Option": 0, "Strongly Agree": 5, "Agree": 4, "Neutral": 3, "Disagree": 2,
              "Strongly Disagree": 1}
-    st.title("CounselBot")
+    st.title("bhaskarjoshi counselbot")
     banner=Image.open("img/21.png")
     st.image(banner, use_column_width=True)
     st.write("Hi! I'm CounselBot, your personal career counseling bot. Ask your queries in the text box below and hit enter. If and when you are ready to take our personality test, type \"start my test\" and you're good to go!")
