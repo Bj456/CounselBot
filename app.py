@@ -9,6 +9,7 @@ import imagify
 from bokeh.plotting import figure
 import math
 from bokeh.palettes import Greens
+from itertools import cycle
 import string
 import re
 import nltk
@@ -23,14 +24,24 @@ df2 = pd.read_csv('bot.csv')
 flag = 1
 
 def pie_chart_bokeh(labels, data, title):
+    if not labels or not data or sum(data) == 0:
+        p = figure(height=400, width=400, title=title, toolbar_location=None, tools="")
+        p.text(x=0, y=1, text=["No Data"], text_align="center", text_font_size="16pt")
+        return p
+
     angle = [d / sum(data) * 2 * math.pi for d in data]
-    color = Greens[len(labels)]
+    palette_size = max(3, min(len(labels), 9))
+    color_palette = Greens[palette_size]
+    color = list(cycle(color_palette))
     p = figure(height=400, width=400, title=title, toolbar_location=None, tools="")
     start_angle = 0
     for i in range(len(labels)):
         end_angle = start_angle + angle[i]
-        p.wedge(x=0, y=1, radius=0.4, start_angle=start_angle, end_angle=end_angle, color=color[i], 
-                legend_label=f"{labels[i]} - {round(data[i])}%")
+        p.wedge(
+            x=0, y=1, radius=0.4,
+            start_angle=start_angle, end_angle=end_angle, color=color[i],
+            legend_label=f"{labels[i]} - {round(data[i])}%"
+        )
         start_angle = end_angle
     p.axis.visible = False
     p.grid.visible = False
