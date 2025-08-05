@@ -1,5 +1,5 @@
 streamlit
-tensorflow==2.20.0  # or the latest compatible version
+tensorflow==2.11.0  # or tensorflow==2.9.0
 numpy
 pandas
 nltk
