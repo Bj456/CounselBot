@@ -4,6 +4,6 @@ pandas
 tensorflow==2.9.0
 joblib
 Pillow
-bokeh
+bokeh==2.4.3
 nltk
 protobuf==3.20.1
